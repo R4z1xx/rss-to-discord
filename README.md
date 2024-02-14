@@ -36,7 +36,7 @@ time.sleep(3600) # Check for new articles every hour
 ```
 
 ### Change embed color
-You can also add color to the Discord embed content by modifying these lines with the hex code of the color you want : 
+You can also add color to the Discord embed content for each RSS feed by modifying these lines with the hex code of the color you want : 
 ```
 color = {
     'domain.org':  0xffffff
