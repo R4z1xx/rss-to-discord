@@ -42,3 +42,5 @@ color = {
     'domain.org':  0xffffff
 .get(rss_feed_author, None) # Modify this if you want to change the color of the embed on Discord (Default is None)
 ```
+For example : <br>
+![image](https://github.com/R4z1xx/rss-to-discord/assets/118757955/bf6cf8ae-f6a4-4daf-b104-bcbc8cb52f4d)
