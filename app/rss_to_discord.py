@@ -11,10 +11,10 @@ log_formatter = logging.Formatter('%(asctime)s|%(levelname)s|%(message)s')
 logger = logging.getLogger()
 
 rss_feed_urls = {
-    'categ_name': ['https://rss.feed.url'],
-    'second_categ': ['https://rss.feed.url']
+    'categ_name': ['https://rss.url/feed'],
+    'second_categ': ['https://rss.url/feed']
 }
-webhook_url = {'categ_name': 'https://discord.com/api/webhooks/{webhook.id}/{webhook.token}'}
+webhook_url = {'categ_name': 'https://discord.com/api/webhooks/webhook.id/webhook.token'}
 
 class FeedNotifier:
     def __init__(self, webhook_url):
