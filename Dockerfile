@@ -1,5 +1,5 @@
-# docker build -t rss-to-discord .
-# docker run -d --name rss-to-discord rss-to-discord
+# docker build -t im-rss-to-discord .
+# docker run -d --name rss-to-discord im-rss-to-discord
 
 FROM python:3.12-slim
 
