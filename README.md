@@ -9,7 +9,7 @@ First clone the repo :
 git clone https://github.com/R4z1xx/rss-to-discord.git
 cd rss-to-discord
 ```
-Open ```rss_feeds.json``` and ```webhooks.json``` located in ```/app/urls/``` with your favorite tool. <br>
+Open `rss_feeds.json` and `webhooks.json` located in `/app/urls/` with your favorite tool. <br>
 Then modify both json files with the URLs of the RSS feeds you want and the URL of your discord webhook :  
 ```
 rss_feeds.json
@@ -27,6 +27,7 @@ webhooks.json
     "second_categ": "https://discord.com/api/webhooks/{webhook.id}/{webhook.token}"
 }
 ```
+***Info : if you modify these files while the container is already running, it will automatically retrieve the new feeds/webhooks at the next article check (24 hours by default).***
 
 Build the Docker image :
 ```
