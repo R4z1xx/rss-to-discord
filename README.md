@@ -1,4 +1,4 @@
-# <p align="center">RSS-TO-DISCORD - Documentation</p>
+# <p align="center">RSS-TO-DISCORD</p>
 
 ## Prerequisites :
 You need to have Docker installed.
