@@ -54,4 +54,4 @@ color = {
 ```
 ![image](https://github.com/R4z1xx/rss-to-discord/assets/118757955/bf6cf8ae-f6a4-4daf-b104-bcbc8cb52f4d)
 
-PS : You can use ```docker logs rss-to-discord``` to check for errors in the script logs.
+PS : You can use `docker logs rss-to-discord` to check for errors in the script logs.
