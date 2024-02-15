@@ -1,0 +1,4 @@
+{
+    "categ_name": "https://discord.com/api/webhooks/{webhook.id}/{webhook.token}",
+    "second_categ": "https://discord.com/api/webhooks/{webhook.id}/{webhook.token}"
+}

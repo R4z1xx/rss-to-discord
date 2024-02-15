@@ -9,30 +9,39 @@ First clone the repo :
 git clone https://github.com/R4z1xx/rss-to-discord.git
 cd rss-to-discord
 ```
-Open ```rss_to_discord.py``` located in ```rss-to-discord/app/``` with your favorite tool. <br>
-Then modify these lines with the URLs of the RSS feeds you want and the URL of your discord webhook :  
+Open ```rss_feeds.json``` and ```webhooks.json``` located in ```/app/urls/``` with your favorite tool. <br>
+Then modify both json files with the URLs of the RSS feeds you want and the URL of your discord webhook :  
 ```
-rss_feed_urls = {
-    'categ_name': ['https://rss.url/feed'],
-    'second_categ': ['https://rss.url/feed']
+rss_feeds.json
+
+{
+    "categ_name": ["https://rss.url/feed"],
+    "second_categ": ["https://rss.url/feed"]
 }
-webhook_url = {'categ_name': 'https://discord.com/api/webhooks/webhook.id/webhook.token'}
+```
+```
+webhooks.json
+
+{
+    "categ_name": "https://discord.com/api/webhooks/{webhook.id}/{webhook.token}",
+    "second_categ": "https://discord.com/api/webhooks/{webhook.id}/{webhook.token}"
+}
 ```
 
 Build the Docker image :
 ```
 docker build -t im-rss-to-discord .
 ```
-And start a new container (it turns indefinitely) : 
+And start the container (it runs indefinitely) : 
 ```
-docker run -d --name rss-to-discord im-rss-to-discord
+docker run -d -v ./app/urls/:/app/urls/ --name rss-to-discord im-rss-to-discord
 ```
 
 ## Optional
 ### Default check time
 By default the script check for new articles every 24 hours but you can modify this by changing the seconds of the timeout env : 
 ```
-docker run -d -e timeout=86400 --name rss-to-discord im-rss-to-discord
+docker run -d -e timeout=86400 -v ./app/urls/:/app/urls/ --name rss-to-discord im-rss-to-discord
 ```
 
 ### Change embed color

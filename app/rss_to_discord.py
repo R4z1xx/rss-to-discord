@@ -10,11 +10,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s|%(levelname)s|%(mess
 log_formatter = logging.Formatter('%(asctime)s|%(levelname)s|%(message)s')
 logger = logging.getLogger()
 
-rss_feed_urls = {
-    'categ_name': ['https://rss.url/feed'],
-    'second_categ': ['https://rss.url/feed']
-}
-webhook_url = {'categ_name': 'https://discord.com/api/webhooks/{webhook.id}/{webhook.token}'}
 article_timeout, _ = divmod(int(os.environ.get('timeout', 86400)), 3600) # Default is 24 hours
 
 class FeedNotifier:
@@ -75,9 +70,17 @@ class FeedNotifier:
                     else:
                         logger.error(f"An error occurred for entry: {entry.title}")
 
-notifier = FeedNotifier(webhook_url)
+def load_configurations():
+    with open('/app/urls/rss_feeds.json', 'r') as f:
+        rss_feed_urls = json.load(f)
+    with open('/app/urls/webhooks.json', 'r') as f:
+        webhook_url = json.load(f)
+    return rss_feed_urls, webhook_url
+
 while True:
     try:
+        rss_feed_urls, webhook_url = load_configurations()
+        notifier = FeedNotifier(rss_feed_urls, webhook_url)
         for rss_feed_type in rss_feed_urls:
             notifier.send_articles(rss_feed_urls, rss_feed_type)
     except Exception as e:
