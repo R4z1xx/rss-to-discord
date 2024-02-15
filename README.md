@@ -1,4 +1,4 @@
-# RSS-TO-DISCORD - Documentation
+# <p align="center">RSS-TO-DISCORD - Documentation</p>
 
 ## Prerequisites :
 You need to have Docker installed.
@@ -30,15 +30,18 @@ docker run -d --name rss-to-discord im-rss-to-discord
 
 ## Optional
 ### Default check time
-By default the script check for new articles every hour but you can modify this by changing the seconds on this line : 
+By default the script check for new articles every 24 hours but you can modify this by changing the seconds of the timeout env : 
 ```
-time.sleep(3600) # Check for new articles every hour
+docker run -d -e timeout=86400 --name rss-to-discord im-rss-to-discord
 ```
 
 ### Change embed color
-You can also add color to the Discord embed content for each RSS feed by modifying these lines with the hex code of the color you want : 
+You can also add color to the Discord embed content for each RSS feed by modifying these lines with the hex code of the color you want. For example : 
 ```
 color = {
-    'domain.org':  0xffffff
-.get(rss_feed_author, None) # Modify this if you want to change the color of the embed on Discord (Default is None)
+    'sentinelone.com':  0x6b0aea
+}.get(rss_feed_author, None) # Modify this if you want to change the color of the embed on Discord (Default is None)
 ```
+![image](https://github.com/R4z1xx/rss-to-discord/assets/118757955/bf6cf8ae-f6a4-4daf-b104-bcbc8cb52f4d)
+
+PS : You can use ```docker logs rss-to-discord``` to check for errors in the script logs.

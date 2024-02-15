@@ -14,7 +14,8 @@ rss_feed_urls = {
     'categ_name': ['https://rss.url/feed'],
     'second_categ': ['https://rss.url/feed']
 }
-webhook_url = {'categ_name': 'https://discord.com/api/webhooks/webhook.id/webhook.token'}
+webhook_url = {'categ_name': 'https://discord.com/api/webhooks/{webhook.id}/{webhook.token}'}
+article_timeout, _ = divmod(int(os.environ.get('timeout', 86400)), 3600) # Default is 24 hours
 
 class FeedNotifier:
     def __init__(self, webhook_url):
@@ -82,5 +83,5 @@ while True:
     except Exception as e:
         logger.error(f'An error occurred: {e}')
         time.sleep(900) # Retries after 15 minutes
-    logger.info('Waiting for 1 hour before checking for new articles...')
-    time.sleep(3600) # Check for new articles every hour
+    logger.info(f'Waiting for {article_timeout} hour(s) before checking for new articles...')
+    time.sleep(article_timeout)
