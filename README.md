@@ -1,6 +1,6 @@
 # <p align="center">RSS-TO-DISCORD</p>
 
-## Prerequisites :
+## Prerequisites
 You need to have Docker installed.
 
 ## Setup
